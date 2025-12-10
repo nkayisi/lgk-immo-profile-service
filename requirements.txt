@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+strawberry-graphql
+pydantic-settings
+sqlalchemy[asyncio]
+asyncpg
+alembic
+bcrypt
