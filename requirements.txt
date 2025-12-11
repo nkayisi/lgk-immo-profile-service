@@ -1,10 +1,19 @@
-fastapi==0.115.6
-uvicorn[standard]==0.34.0
-strawberry-graphql[fastapi]==0.254.1
-pydantic-settings==2.7.1
-sqlalchemy[asyncio]==2.0.36
-asyncpg==0.30.0
-alembic==1.14.0
-bcrypt==4.2.1
-python-multipart==0.0.20
-httpx==0.28.1
+fastapi>=0.109.0,<1.0.0
+uvicorn[standard]>=0.27.0,<1.0.0
+
+# GraphQL - version récente compatible avec Pydantic 2.10+
+strawberry-graphql[fastapi]>=0.252.0
+
+# Pydantic - version compatible avec Strawberry 0.252+
+pydantic>=2.10.0,<3.0.0
+pydantic-settings>=2.1.0,<3.0.0
+
+# Database
+sqlalchemy[asyncio]>=2.0.25,<3.0.0
+asyncpg>=0.29.0,<1.0.0
+alembic>=1.13.0,<2.0.0
+
+# Utils
+bcrypt>=4.1.0,<5.0.0
+python-multipart>=0.0.6,<1.0.0
+httpx>=0.26.0,<1.0.0
