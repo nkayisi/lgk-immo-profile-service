@@ -46,7 +46,7 @@ class ProfileMutation:
         try:
             profile = await profile_service.create_individual_profile(
                 db=db,
-                external_user_id=UUID(input.external_user_id),
+                external_user_id=str(input.external_user_id),
                 phone_number=input.phone_number,
                 country=input.country,
                 city=input.city,
@@ -86,7 +86,7 @@ class ProfileMutation:
         try:
             profile = await profile_service.create_business_profile(
                 db=db,
-                external_user_id=UUID(input.external_user_id),
+                external_user_id=str(input.external_user_id),
                 business_name=input.business_name,
                 phone_number=input.phone_number,
                 country=input.country,

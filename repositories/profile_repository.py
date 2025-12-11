@@ -131,7 +131,7 @@ class ProfileRepository(BaseRepository[Profile]):
     async def get_by_external_user_id(
         self,
         db: AsyncSession,
-        external_user_id: UUID
+        external_user_id: str
     ) -> Optional[Profile]:
         """Récupère un profil par l'ID utilisateur externe."""
         query = (
@@ -212,7 +212,7 @@ class ProfileRepository(BaseRepository[Profile]):
     async def create_individual_profile(
         self,
         db: AsyncSession,
-        external_user_id: UUID,
+        external_user_id: str,
         phone_number: Optional[str] = None,
         country: Optional[str] = None,
         city: Optional[str] = None,
@@ -257,7 +257,7 @@ class ProfileRepository(BaseRepository[Profile]):
     async def create_business_profile(
         self,
         db: AsyncSession,
-        external_user_id: UUID,
+        external_user_id: str,
         business_name: str,
         phone_number: Optional[str] = None,
         country: Optional[str] = None,

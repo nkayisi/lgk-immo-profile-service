@@ -38,9 +38,9 @@ class ProfileQuery:
         info: Info,
         external_user_id: strawberry.ID
     ) -> Optional[ProfileUnion]:
-        """Récupère un profil par l'ID utilisateur externe."""
+        """Récupère un profil par l'ID utilisateur externe (cuid ou autre format string)."""
         db = info.context["db"]
-        return await profile_service.get_profile_by_external_user_id(db, UUID(external_user_id))
+        return await profile_service.get_profile_by_external_user_id(db, str(external_user_id))
 
     @strawberry.field(description="Récupère les profils avec filtres et pagination")
     async def profiles(

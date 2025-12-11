@@ -18,7 +18,7 @@ class Profile(Base):
     __tablename__ = "profiles"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, index=True)
-    external_user_id = Column(UUID(as_uuid=True), nullable=False, index=True, comment="Référence vers User dans Auth Service")
+    external_user_id = Column(String(50), nullable=False, index=True, unique=True, comment="Référence vers User dans Auth Service (cuid)")
     profile_type = Column(SQLEnum(ProfileType), nullable=False)
     phone_number = Column(String(20), nullable=True)
     country = Column(String(100), nullable=True)
