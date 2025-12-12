@@ -51,6 +51,16 @@ def health_check():
     return {"status": "healthy", "service": "profile-service"}
 
 
+@app.get("/debug/cors")
+def debug_cors():
+    """Debug endpoint to check CORS configuration (remove in production if needed)."""
+    return {
+        "cors_origins": settings.cors_origins_list,
+        "cors_origins_raw": settings.CORS_ORIGINS,
+        "environment": settings.ENVIRONMENT
+    }
+
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)

@@ -11,7 +11,8 @@ class Settings(BaseSettings):
     API_SECRET_HEADER: str = "X-API-Secret"
     
     # CORS - Origins autorisées (séparées par des virgules)
-    CORS_ORIGINS: str
+    # Valeur par défaut vide pour éviter les crashs, mais doit être configuré en production
+    CORS_ORIGINS: str = "http://localhost:3000"
     
     # Environment
     ENVIRONMENT: str = "development"
@@ -19,7 +20,10 @@ class Settings(BaseSettings):
     @property
     def cors_origins_list(self) -> List[str]:
         """Retourne la liste des origines CORS."""
-        return [origin.strip() for origin in self.CORS_ORIGINS.split(",") if origin.strip()]
+        origins = [origin.strip() for origin in self.CORS_ORIGINS.split(",") if origin.strip()]
+        # Log pour debug en production
+        print(f"[Config] CORS Origins loaded: {origins}")
+        return origins
     
     @property
     def is_production(self) -> bool:
